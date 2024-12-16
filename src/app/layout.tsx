@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { ModeToggle } from "@/components/modeToggle/modeToggle";
+import Providers from "@/providers/providers";
 import "./globals.css";
+import NavBar from "@/components/navBar/navBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,12 +28,39 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    <Providers>
+      <html
+        lang="en"
+        suppressHydrationWarning
       >
-        {children}
-      </body>
-    </html>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="flex flex-col min-h-screen">
+              <header className="sticky top-0 z-40 w-full border-b bg-background">
+                <NavBar />
+              </header>
+
+              <main className="flex-grow">{children}</main>
+
+              <footer className="w-full border-t bg-background py-6">
+                <div className="container flex items-center justify-center">
+                  <p>
+                    &copy; {new Date().getFullYear()} Sebastian Danilo Narvaez
+                    Narvaez. All rights reserved.
+                  </p>
+                </div>
+              </footer>
+            </div>
+          </ThemeProvider>{" "}
+        </body>
+      </html>
+    </Providers>
   );
 }
