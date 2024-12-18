@@ -1,6 +1,7 @@
 "use client";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { ModeToggle } from "@/components/modeToggle/modeToggle";
+import Link from "next/link";
 import { useTranslation } from "react-i18next";
 
 const NavBar = () => {
@@ -9,48 +10,48 @@ const NavBar = () => {
     <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
       <nav className="flex items-center space-x-4">
         {/* Add navigation menu items */}
-        <a
+        <Link
           href="/"
           className="font-bold"
         >
           Portafolio
-        </a>
+        </Link>
       </nav>
       <nav className="flex items-center space-x-4">
         {/* Add navigation menu items */}
-        <a
+        <Link
           href="/#profesional-goals"
           className="font-bold"
         >
           {t("professionalGoals.title")}
-        </a>
+        </Link>
       </nav>
       <nav className="flex items-center space-x-4">
         {/* Add navigation menu items */}
-        <a
+        <Link
           href="/#technologies"
           className="font-bold"
         >
           {t("technologies.title")}
-        </a>
+        </Link>
       </nav>
       <nav className="flex items-center space-x-4">
         {/* Add navigation menu items */}
-        <a
+        <Link
           href="/#workExperience"
           className="font-bold"
         >
           {t("workExperience.title")}
-        </a>
+        </Link>
       </nav>
       <nav className="flex items-center space-x-4">
         {/* Add navigation menu items */}
-        <a
+        <Link
           href="/projects"
           className="font-bold"
         >
           {t("projects")}
-        </a>
+        </Link>
       </nav>
       <div className="flex items-center justify-end space-x-4">
         <LanguageSwitcher />

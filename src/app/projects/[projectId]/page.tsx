@@ -1,9 +1,16 @@
 "use client";
 import React, { useState } from "react";
-import { ChevronRight, Code, Server, Layers, Image } from "lucide-react";
+import {
+  ChevronRight,
+  Code,
+  Server,
+  Layers,
+  Image as ImageIcon,
+} from "lucide-react";
 import { useParams } from "next/navigation";
 import { projects } from "@/data/projects";
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
 
 const ProjectDetailPage = () => {
   const { projectId } = useParams<{ projectId: string }>();
@@ -40,7 +47,7 @@ const ProjectDetailPage = () => {
               {
                 key: "screenshots",
                 label: t("project.navBar.images"),
-                icon: <Image className="mr-2 text-red-500" />,
+                icon: <ImageIcon className="mr-2 text-red-500" />,
               },
             ].map((section) => (
               <button
@@ -171,7 +178,7 @@ const ProjectDetailPage = () => {
                     onClick={() => setSelectedScreenshot(screenshot)}
                     className="rounded-lg overflow-hidden hover:scale-105 transition-transform"
                   >
-                    <img
+                    <Image
                       src={screenshot}
                       alt={`Captura ${index + 1}`}
                       className="w-full h-40 object-cover"
@@ -201,7 +208,7 @@ const ProjectDetailPage = () => {
             className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedScreenshot("")}
           >
-            <img
+            <Image
               src={selectedScreenshot}
               alt="Captura de pantalla ampliada"
               className="max-w-full max-h-full object-contain"
