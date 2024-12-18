@@ -25,7 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       <CardHeader>
         <CardTitle>{project.name}</CardTitle>
         <CardDescription>
-          {project.description[currentLanguage as "en" | "es"]}
+          {project.description.description[currentLanguage as "en" | "es"]}
         </CardDescription>
       </CardHeader>
       <CardContent>

@@ -26,6 +26,28 @@ const resources = {
       viewProject: "View Project",
       seeProjects: "See Projects",
       seeDetails: "See Details",
+      project:{
+        navBar: {
+          description: "Responsibilities",
+          technologies: "Technologies",
+          practices: "Development Practices",
+          images: "Images"
+        },
+        description:{
+          title: "Responsibilities"
+        },
+        technologiesUsed:{
+          title: "Used Technologies"
+        },
+        practices:{
+          title: "Development Practices"
+        },
+        images:{
+          title: "Images"
+        }
+      }
+      
+
     },
   },
   es: {
@@ -52,6 +74,26 @@ const resources = {
       viewProject: "Ver Proyecto",
       seeProjects: "Ver Proyectos",
       seeDetails: "Ver Detalles",
+      project:{
+        navBar: {
+          description: "Responsabilidades",
+          technologies: "Tecnologías",
+          practices: "Prácticas de Desarrollo",
+          images: "Imagenes"
+        },
+        description:{
+          title: "Responsabilidades"
+        },
+        technologiesUsed:{
+          title: "Tecnologías utilizadas"
+        },
+        practices:{
+          title: "Prácticas de Desarrollo"
+        },
+        images:{
+          title: "Imagenes"
+        }
+      }
     },
   },
 };

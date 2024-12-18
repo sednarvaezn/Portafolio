@@ -24,22 +24,22 @@ const ProjectDetailPage = () => {
             {[
               {
                 key: "description",
-                label: "Descripción",
+                label: t("project.navBar.description"),
                 icon: <Layers className="mr-2 text-blue-500" />,
               },
               {
                 key: "technologies",
-                label: "Tecnologías",
+                label: t("project.navBar.technologies"),
                 icon: <Code className="mr-2 text-green-500" />,
               },
               {
                 key: "practices",
-                label: "Prácticas",
+                label: t("project.navBar.practices"),
                 icon: <Server className="mr-2 text-purple-500" />,
               },
               {
                 key: "screenshots",
-                label: "Capturas",
+                label: t("project.navBar.images"),
                 icon: <Image className="mr-2 text-red-500" />,
               },
             ].map((section) => (
@@ -69,11 +69,31 @@ const ProjectDetailPage = () => {
           {activeSection === "description" && (
             <div>
               <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
-                Descripción del Proyecto
+                {t("project.description.title")}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                {project.description[currentLanguage as "en" | "es"]}
+                {
+                  project.description.description[
+                    currentLanguage as "en" | "es"
+                  ]
+                }
               </p>
+
+              <ul className="list-inside list-disc space-y-2 mt-4">
+                {project.description.responsabilities[
+                  currentLanguage as "en" | "es"
+                ].map((responsability, index) => {
+                  return (
+                    <li
+                      key={index}
+                      className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                    >
+                      {responsability}
+                    </li>
+                  );
+                })}
+              </ul>
+
               {project.liveLink && (
                 <a
                   href={project.liveLink}
@@ -81,7 +101,7 @@ const ProjectDetailPage = () => {
                   rel="noopener noreferrer"
                   className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors"
                 >
-                  Ver Proyecto
+                  {t("viewProject")}
                 </a>
               )}
             </div>
@@ -91,7 +111,7 @@ const ProjectDetailPage = () => {
           {activeSection === "technologies" && (
             <div>
               <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
-                Tecnologías Utilizadas
+                {t("project.technologiesUsed.title")}
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {project.technologies.map((tech) => (
@@ -112,7 +132,7 @@ const ProjectDetailPage = () => {
           {activeSection === "practices" && (
             <div>
               <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
-                Prácticas de Desarrollo
+                {t("project.practices.title")}
               </h3>
               <ul className="space-y-3">
                 {project.practices.map((practice) => (
@@ -142,7 +162,7 @@ const ProjectDetailPage = () => {
           {activeSection === "screenshots" && (
             <div>
               <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
-                Capturas de Pantalla
+                {t("project.images.title")}
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {project.screenshots.map((screenshot, index) => (
