@@ -80,7 +80,7 @@ export const projects: Project[] = [
       "NextUI",
       "React Query",
       "Vercel",
-      "Cypress",
+      "Jest",
       "Tailwind",
       "Zustand",
     ],
